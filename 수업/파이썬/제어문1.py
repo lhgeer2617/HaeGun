@@ -44,9 +44,9 @@
 
 ########################################################
 
-numbers = [1, 2, 3, 4, 5]
-result = list(map(lambda x: x * 2, numbers)) # map + lamda
-print(result)
+# numbers = [1, 2, 3, 4, 5]
+# result = list(map(lambda x: x * 2, numbers)) # map + lamda
+# print(result)
 
 ########################################################
 
@@ -68,16 +68,20 @@ print(result)
 
 ########################################################
 
-# lst = [0] * 5
-# print(lst)
+lst = [0] * 5
+print(lst)
 
-# lst = [[0] * 4] * 4 # 이렇게 만들면 안된다.
-# lst[0][1] = 100
+lst = [[0] * 4] * 4 # 이렇게 만들면 안된다.
+lst[0][1] = 100
 
-# print(lst)
+print(lst)
 
-# lst = [[0] * 4 for _ in range(4)]
-# print(lst)
+lst = [[0] * 4 for _ in range(4)]
+print(lst)
+
+lst[0][1] = 100
+
+print(lst)
 
 ########################################################
 
