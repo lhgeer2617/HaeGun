@@ -129,8 +129,8 @@
 
 #################################### 깊은 복사
 
-import copy
-original_list = [1, 2, [1, 2]]
-deep_copied_list = copy.deepcopy(original_list)
-deep_copied_list[2][0] = 999
-print(original_list, deep_copied_list)
+# import copy
+# original_list = [1, 2, [1, 2]]
+# deep_copied_list = copy.deepcopy(original_list)
+# deep_copied_list[2][0] = 999
+# print(original_list, deep_copied_list)
