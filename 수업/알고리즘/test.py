@@ -1,27 +1,23 @@
-t = 10
-for tc in range(1,t+1):
-    dump = int(input()) # 덤프 제한 횟수
-    arr =list(map(int, input().split()))
+# T = int(input())
 
-    cnt = 0
-    arr_index = 0
-    cnt_index = 0
-    max_h = 0
-    min_h = 100
+# for text_case in range(T):
+#     N = int(input())
 
-    for i in range(dump):
+#     bus_routes = [(list(map(int, input().split()))) for _ in range(N)]
+    
+#     P = int(input())
+#     counts = [0] * (P)
 
-        for j in arr:
-            if max_h < j :
-                max_h = j # 리스트 내 최대값 구하기
-            if min_h > j :
-                min_h = j # 리스트 내 최솟값 구하기
+#     bus_stations = [int(input()) for _ in range(P)]
 
-        max_h -= 1
-        min_h += 1
+#     for a in range(N):
+#         for point in range(bus_routes[a][0]-1, bus_routes[a][1]):
+#             counts[point] += 1
 
-        cnt += 1
+#     result = [(counts[bus_stations[b]-1]) for b in range(P)]
 
-        result = max_h-min_h
+#     print(f'#{text_case + 1}', *result)
 
-    print(f'#{tc} {result}')
+
+########################################################
+
