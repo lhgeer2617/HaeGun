@@ -1,28 +1,34 @@
+# str1에 들어있는 문자들이 str에 각각 몇개나 포함이 되어있고
+# 그중에서 가장 많이 포함된 문자의 수를 출력
+
 T = int(input())
 
-for tc in range(1, T+1):
-    N = int(input())
-    arr = [[0] * N for _ in range(N)]
+for tc in range(1, T + 1):
+    str1 = input()
+    str2 = input()
 
-    dr = [0, 1, 0, 1]
-    dc = [1, 0 -1, 0]
+    # str의 문자들을 딕셔너리의 키값으로 넣고 벨류로
+    # str2에 몇개나 있는지를 카운트
 
-    num = 1
-    r, c = 0, 0
-    x = 0
+    dic = {}
 
-    while True:
-        if num > N*N:
-            break
+    for x in str1:
+        dic.setdefault(x, 0)
 
-        arr[r][c] = num
-
-        nr = r + dr[x]
-        nc = c + dc[x]
-
-        if 0 <= nr < N and 0 <= nc < N and arr[nr][nc] == 0:
+    for x in str2:
+        try:
+            dic[x] += 1
+        except KeyError:
             pass
-        else:
-            x = (x+1)%4
+    
+    # 벨류의 최대값을 구하면 끝
 
-    print(arr)
+    data = list(dic.values())
+
+    my_max = -1
+
+    for x in data:
+        if my_max < x:
+            my_max = x
+
+    print(f'#{tc} {my_max}')

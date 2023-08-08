@@ -94,5 +94,22 @@ for tc in range(1, T + 1):
         
         fnc_print(result_start, index, zip_data, M)
 
+'''
 
+def find():
+    for i in range(N):
+        for j in range(N-M+1):
+            for k in range(M//2):
+                if data[i][j+k] != data[i][j+M-1-k]:
+                    break
+
+    else: # break가 한번도 실행이 안될 경우 수행
+        # 회문 찾음
+        result = []
+        for x in range(j, j+M):
+            result.append(data[i][k])
+        
+        return result
+
+'''
     
