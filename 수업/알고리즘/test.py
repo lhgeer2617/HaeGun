@@ -1,15 +1,44 @@
-T = int(input())
-for tc in range(1, T+1):
-    stack = []             # 쇠막대기를 스택에 넣어 보관하고 레이저가 보관된만큼 자를 것이다.
-    input_str = input()
-    cnt = 0                # 레이저가 쇠막대기를 자르는 수를 셀것이다(그만큼 쇠막대기 수가 증가)
-    num = 0                # 쇠막대기가 몇개인지 세어줄것이다.
-    for i in range(len(input_str)):
-        if input_str[i] == '(' and input_str[i + 1] == ')':  # () 이 둘이 붙어 있으면 레이저이다.
-            cnt += len(stack)                                # 레이저는 막대기 갯수만큼 자를 것이다.
-        elif input_str[i] == '(':                            # ( 가 혼자있다면 막대기의 시작점이다. 그만큼 스택에 추가
-            stack.append(input_str[i])
-            num += 1                                         # append 될때마다 num을 증가시켜 쇠막대기 갯수를 구한다.
-        elif input_str[i] == ')' and input_str[i - 1] != '(':  # )가 혼자 있다면 막대기의 끝지점이가. 막대기를 스택에서 하나 빼준다.
-            stack.pop()
-    print(f'#{tc} {cnt + num}')                              # 총 막대기 갯수와 잘라내서 생겨난 수를 더해준다.
+import sys
+
+N = int(sys.stdin.readline().rstrip())
+
+data = list(map(int, sys.stdin.readline().rstrip().split()))
+
+top = N - 1
+point = top
+result = [0] * N
+
+while data:
+    num = data.pop()
+    top = point
+    top -= 1
+
+    if len(data) != 0 and max(data) < num:
+        point -= 1
+    is_flag = False
+    for x in range(point):
+        if 0 <= point < len(data) and data[x] < data[x + 1]:
+            is_flag = True
+        else:
+            is_flag = False
+            break
+
+    if is_flag:
+        break
+
+    while top >= 0:
+
+        if len(data) != 0 and max(data) < num:
+            point -= 1
+            break
+
+        if data[top] >= num:
+            result[point] = top + 1
+            point -= 1
+            break
+        else:
+            top -= 1
+    else:
+        point -= 1
+
+print(*result)
