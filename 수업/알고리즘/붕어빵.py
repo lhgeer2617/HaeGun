@@ -5,26 +5,21 @@ for tc in range(1, T + 1):
     data = list(map(int, input().split()))
     data.sort()
 
-    time = 0
-    cnt = 0
     i = 0
-    #ot = 0
 
-    while True:
+    is_pos = True
 
-        if i == N:
-            print(f'#{tc} Possible')
+    while i < N:
+
+        bbang = (data[i] // M) * K
+
+        if bbang < i + 1:
+            is_pos = False
             break
 
-        time = data[i] - time
-        #time += ot
-        #ot = time % M
+        i += 1
 
-        cnt += (time // M) * K
-
-        cnt -= 1
-        i += 1.
-
-        if cnt < 0:
-            print(f'#{tc} Impossible')
-            break
+    if is_pos:
+        print(f'#{tc} Possible')
+    else:
+        print(f'#{tc} Impossible')
