@@ -1,7 +1,9 @@
 def solve(start, end):
+    
     if start == end:
         return start
 
+    
     m = (start + end) // 2
     w1 = solve(start, m)
     w2 = solve(m + 1, end)
@@ -25,5 +27,5 @@ for tc in range(1, T + 1):
     N = int(input())
 
     data = list(map(int, input().split()))
-
+    
     print(f'#{tc} {solve(0, N - 1) + 1}')
