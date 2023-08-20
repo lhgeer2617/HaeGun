@@ -4,7 +4,9 @@ def dfs(start):
 
     point = start
     visited[point] = 1
-    print(point, end= ' d')
+    result = []
+    result.append(start)
+
     while True:
 
         for a in arr[point]:
@@ -12,16 +14,32 @@ def dfs(start):
                 stack.append(point)
                 point = a
                 visited[point] = 1
-                print(point, end=' ')
+                result.append(point)
                 break
         else:
             if not stack:
+                return result
                 break
             point = stack.pop()
-
+    return result
 
 def bfs(start):
-    pass
+    queue = []
+    visited = [0] * (V + 1)
+
+    queue.append(start)
+    visited[start] = 1
+    result = []
+
+    while queue:
+        point = queue.pop(0)
+        result.append(point)
+        for a in arr[point]:
+            if visited[a] == 0:
+                queue.append(a)
+                visited[a] = visited[point] + 1
+
+    return result
 
 
 V, E, S = map(int, input().split())
@@ -33,5 +51,11 @@ for x in range(E):
     arr[n1].append(n2)
     arr[n2].append(n1)
 
-    dfs(S)
-    #bfs(S)
+
+for x in range(V+1):
+    arr[x].sort()
+
+#print(arr)
+
+print(*dfs(S))
+print(*bfs(S))
