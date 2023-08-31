@@ -1,13 +1,27 @@
 def fnc(i):
-    K = 6
-    if i == K:
-        print(result)
+
+    if i == change:
+        print(arr)
         return
 
     for x in data:
-        i, j = x
-        result[i], result[j] = result[j], result[i]
+        arr[i] = x
         fnc(i+1)
+
+
+def fnc2(i):
+    if i == len(bit):
+        for x in range(len(bit)):
+            if bit[x]:
+                print(data[x], end=' ')
+        print()
+        return
+
+    bit[i] = 1
+    fnc2(i + 1)
+    bit[i] = 0
+    fnc2(i + 1)
+
 
 
 
@@ -21,11 +35,22 @@ for tc in range(1, T + 1):
 
     N = len(numbers)
     data = []
-    arr = []
+    arr = [0] * change
     result = numbers[:]
+    visited = [0] * 6
 
     for a in range(N):
         for b in range(a, N):
             data.append((a, b))
-    #print(data)
+
+    M = len(data)
+
+    bit = [0] * change
+    tt = [1, 2, 3]
+    print(data)
     fnc(0)
+    #fnc(0)
+    # for x in data:
+    #     i, j = x
+    #     result[i], result[j] = result[j], result[i]
+    #print(result)
