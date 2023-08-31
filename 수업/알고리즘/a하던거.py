@@ -1,56 +1,37 @@
 def fnc(i):
+    global max_v, copy_arr
+    if i == K:
+        print(result)
+        for x in result:
+            copy_arr[x[0]], copy_arr[x[1]] = copy_arr[x[1]], copy_arr[x[0]]
 
-    if i == change:
-        print(arr)
+        st = int(''.join(copy_arr))
+        copy_arr = numbers[:]
+        if max_v < st:
+            max_v = st
+
         return
 
     for x in data:
-        arr[i] = x
-        fnc(i+1)
+        result[i] = x
 
-
-def fnc2(i):
-    if i == len(bit):
-        for x in range(len(bit)):
-            if bit[x]:
-                print(data[x], end=' ')
-        print()
-        return
-
-    bit[i] = 1
-    fnc2(i + 1)
-    bit[i] = 0
-    fnc2(i + 1)
-
-
-
-
+        fnc(i + 1)
 
 
 T = int(input())
-
 for tc in range(1, T + 1):
-    numbers, change = map(int, input().split())
-    numbers = list(map(int, str(numbers)))
+    numbers, K = map(int, input().split())
+    numbers = list(str(numbers))
 
+    copy_arr = numbers[:]
+    max_v = 0
     N = len(numbers)
     data = []
-    arr = [0] * change
-    result = numbers[:]
-    visited = [0] * 6
-
     for a in range(N):
-        for b in range(a, N):
+        for b in range(a+1, N):
             data.append((a, b))
 
-    M = len(data)
+    result = [0] * K
 
-    bit = [0] * change
-    tt = [1, 2, 3]
-    print(data)
     fnc(0)
-    #fnc(0)
-    # for x in data:
-    #     i, j = x
-    #     result[i], result[j] = result[j], result[i]
-    #print(result)
+    print(f'#{tc} {max_v}')

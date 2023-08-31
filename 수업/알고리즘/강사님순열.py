@@ -11,6 +11,32 @@
 #             used[j] = 0
 
 
+def f(i):
+    if i == K:
+        print(result)
+        return
+
+    for j in range(N):
+        result[i] = card[j]
+
+        f(i + 1)
+
+N = 6
+K = 2
+#card = [1, 2, 3, 4, 5]
+card = [(0, 0), (0, 1), (0, 2), (1, 1), (1, 2), (2, 2)]
+used = [0] * N
+result = [0] * K
+f(0)
+
+data = [1, 2, 3, 4]
+
+bit = [0] * 4
+        
+
+
+
+
 # def f2(i):
 #     if i == 4:
 #         result = []
@@ -40,34 +66,26 @@
 #         print(result1, result2)
 
 
-# N = 5
-# K = 3
-# card = [1, 2, 3, 4, 5]
-# used = [0] * N
-# result = [0] * K
-# f(0, N, K)
 
-# data = [1, 2, 3, 4]
-# bit = [0] * 4
 
-# # f2(0)
+# f2(0)
 
-# #f3()
+#f3()
 
 
 
 
 
-def nCr(n, r, s):
-    if r == 0:
-        print(*comb)
-    else:
-        for i in range(s, n-r+1):
-            comb[r-1] = A[i]
-            nCr(n, r-1, i+1)
+# def nCr(n, r, s):
+#     if r == 0:
+#         print(*comb)
+#     else:
+#         for i in range(s, n-r+1):
+#             comb[r-1] = A[i]
+#             nCr(n, r-1, i+1)
 
-A = [1, 2, 3, 4, 5, 6]
-N = len(A)
-R = 2
-comb = [0] * R
-nCr(N, R, 0)
+# A = [1, 2, 3, 4, 5, 6]
+# N = len(A)
+# R = 2
+# comb = [0] * R
+# nCr(N, R, 0)
