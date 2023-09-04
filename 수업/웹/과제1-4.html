@@ -17,16 +17,20 @@
     .inline-block {
       display: inline-block;
     }
+    p {
+      margin-top: 0%;
+      margin-bottom: 0%;
+    }
   </style>
 </head>
 <body>
   <div>
-    <p class="inline-block">USERNAME : </p>
-    <input type="text" placeholder="아이디를 입력 해 주세요.">
+    <label for="id" class="inline-block">USERNAME : </label>  
+    <input type="text" placeholder="아이디를 입력 해 주세요." id="id">
   </div>
   <div>
-    <p class="inline-block">PWD : </p>
-    <input type="text" placeholder="">
+    <label for="password" class="inline-block">PWD : </label>
+    <input type="password" id="password">
     <button>로그인</button>
   </div>
 </body>
