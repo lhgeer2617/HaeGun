@@ -44,32 +44,33 @@ v1 w1 v2 w2 ...
 # dfs
 # 7 8
 # 1 2 1 3 2 4 2 5 3 5 4 6 5 6 6 7
+def dfs(now):
+    visited = [0] * (V + 1)
+    stack = [now]
+    visited[now] = 1
+    print(now)
+    while stack:
+
+        for next in link[now]:
+            if not visited[next]:
+                print(next)
+                visited[next] = 1
+                stack.append(now)
+                now = next
+                break
+        else:
+            now = stack.pop()
+
+
 V, E = map(int, input().split())
+
 data = list(map(int, input().split()))
-arr = [[] * x for x in range(1, E + 1)]
-stack = []
-visited = [0] * (V+1)
-
+link = [[] for _ in range(V + 1)]
 for x in range(E):
-    arr[data[x*2]].append((data[x*2+1]))
+    link[data[x * 2]].append(data[x * 2 + 1])
 
-n = 1
-visited[n] = 1
-print(n)
+dfs(1)
 
-while True:
-
-    for w in arr[n]:
-        if visited[w] == 0:
-            stack.append(n)
-            n = w
-            visited[w] = 1
-            print(n)
-            break
-    else:
-        if len(stack) == 0:
-            break
-        n = stack.pop()
 
 ###############################
 # 재귀
